@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CustomPipeComponent } from './custom-pipe.component';
+import { CustPipeExampleComponent } from './cust-pipe-example.component';
 
-describe('CustomPipeComponent', () => {
-  let component: CustomPipeComponent;
-  let fixture: ComponentFixture<CustomPipeComponent>;
+describe('CustPipeExampleComponent', () => {
+  let component: CustPipeExampleComponent;
+  let fixture: ComponentFixture<CustPipeExampleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CustomPipeComponent]
+      imports: [CustPipeExampleComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CustomPipeComponent);
+    fixture = TestBed.createComponent(CustPipeExampleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

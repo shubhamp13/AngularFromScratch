@@ -7,7 +7,8 @@ import { IfElseComponent } from './components/contrl-flow/if-else/if-else.compon
 import { ForSwitchComponent } from './components/contrl-flow/for-switch/for-switch.component';
 import { DefaultPipeComponent } from './components/pipes/default-pipe/default-pipe.component';
 import { AsyncPipeComponent } from './components/pipes/async-pipe/async-pipe.component';
-import { CustomPipeComponent } from './components/pipes/custom-pipe/custom-pipe.component';
+import { CustPipeExampleComponent } from './components/pipes/cust-pipe-example/cust-pipe-example.component';
+
 
 
 export const routes: Routes = [
@@ -45,6 +46,6 @@ export const routes: Routes = [
     },
     {
         path: 'custom-pipe',
-        component: CustomPipeComponent
+        component: CustPipeExampleComponent
     }
 ];
