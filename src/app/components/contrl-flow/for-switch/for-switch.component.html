@@ -1,0 +1,95 @@
+<div class="mt-4 pt-3 bg-secondary text-white rounded">
+    <h2>Control Flow</h2>
+    <ol>
+        <li>for</li>
+        <li>switch</li>
+    </ol>
+</div>
+<div class="row">
+    <div class="col-3 mt-4 pt-2">
+        <ol>
+            @for (city of cities; track $index) {
+            <li>{{city}}</li>
+            }
+        </ol>
+    </div>
+    <div class="col-3 mt-4 pt-2">
+        <select>
+            @for (c of cities; track $index) {
+            <option>{{c}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-3 mt-4 pt-2">
+        <input type="text" [(ngModel)]="dayNumber"><br>
+        Day is:@switch (dayNumber) {
+        @case ('1') {
+        <span>Monday</span>
+        }
+        @case ('2') {
+        <span>Tueseday</span>
+        }
+        @case ('3') {
+        <span>Wednesday</span>
+        }
+        @case ('4') {
+        <span>Thurseday</span>
+        }
+        @case ('5') {
+        <span>Friday</span>
+        }
+        @case ('6') {
+        <span>Satudrday</span>
+        }
+        @case ('7') {
+        <span>Sunday</span>
+        }
+
+        @default {
+        <span>Please Enter Day First</span>
+        }
+        }
+    </div>
+</div>
+<table class="table table-bordered">
+    <tbody>
+
+        <tr>
+            <th>SR.No</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Divison</th>
+            <th>Gender</th>
+            <th>Date Of Birth</th>
+            <th>Email</th>
+            <th>Phone No</th>
+            <th>Address</th>
+        </tr>
+        @for (user of users; track $index) {
+        <tr>
+            <td>{{$index+1}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.class}}</td>
+            <td>{{user.division}}</td>
+            <td>{{user.gender}}</td>
+            <td>{{user.dateOfBirth.toDateString()}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phoneno}}</td>
+            <td>{{user.address}}</td>
+        </tr>
+        }
+
+
+        <!-- <tr *ngFor="let user of users;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.class}}</td>
+            <td>{{user.division}}</td>
+            <td>{{user.gender}}</td>
+            <td>{{user.dateOfBirth.toDateString()}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phoneno}}</td>
+            <td>{{user.address}}</td>
+        </tr> -->
+    </tbody>
+</table>

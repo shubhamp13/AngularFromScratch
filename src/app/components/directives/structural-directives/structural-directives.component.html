@@ -1,0 +1,105 @@
+<div class="mt-2 p-2 bg-secondary text-white rounded">
+    <h1>Structural Directives</h1>
+    <p>*ngFor,*ngIf</p>
+    <button class="btn btn-bg primary" (click)="navigateToAttribute()">Go To Attribute Directive</button>
+</div>
+<div class="row pt3 mt-4">
+    <div class="col-3">
+        <div class="bg-danger p-3 text-center" *ngIf="isVisible">
+            <h4>Div1</h4>
+        </div>
+
+    </div>
+    <div class="col-3">
+        <div class="bg-danger p-3 text-center" *ngIf="isToggle">
+            <h4>Div2</h4>
+        </div>
+
+    </div>
+    <div class="col-3">
+        <div class="bg-danger p-3 text-center" *ngIf="num1>num2">
+            <h4>Div3</h4>
+        </div>
+
+    </div>
+    <div class="col-3">
+        <div class="bg-danger p-3 text-center" *ngIf="state=='Maharashtra'">
+            <h4>Div4</h4>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row pt3 mt-4">
+    <div class="col-3 mt-3 text-center">
+        <button class=" btn btn-danger" (click)="hideDiv()">Hide</button>
+        <button class="btn btn-primary mx-4" (click)="showDiv()">Show</button>
+    </div>
+    <div class="col-3 mt-3 text-center">
+        <button class="btn btn-danger" (click)="toggleDiv()">Toggle</button>
+
+    </div>
+    <div class="col-3 mt-3 text-center">
+        <div class="row text-center">
+            <input type="text" name="num1" placeholder="Enter Number" [(ngModel)]="num1">
+            <input type="text" name="num2" placeholder="Enter Number" [(ngModel)]="num2">
+
+        </div>
+
+    </div>
+    <div class="col-3 mt-3 text-center">
+        <div class="row text-center">
+            Checked:<input type="checkbox" [(ngModel)]="isChecked">
+            <select [(ngModel)]="state">
+                <option value="">Select</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Goa">Goa</option>
+                <option value="Punjab">Punjab</option>
+            </select>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row mt-4">
+    <div class="col-3 mt-4">
+        <ul>
+            <li *ngFor="let c of cityArray">
+                {{c}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-3 mt-4">
+        City:
+        <select>
+            <option value="{{city}}" *ngFor="let city of cityArray">{{city}}</option>
+        </select>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <tbody>
+        <tr>
+            <th>S.No</th>
+            <th>Student Name</th>
+            <th>Student Class</th>
+            <th>Student Roll No</th>
+            <th>Active</th>
+        </tr>
+
+        <tr *ngFor="let user of users; let srNo=index">
+            <td>{{srNo+1}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.class}}</td>
+            <td>{{user.roll_no}}</td>
+            <td>
+                <span *ngIf="user.isActive">Active</span>
+                <span *ngIf="!user.isActive">Not Active</span>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

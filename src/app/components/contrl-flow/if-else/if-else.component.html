@@ -1,0 +1,101 @@
+<div class=" mt-2 p-2 bg-secondary text-white rounded">
+    <h1>Control Flow SStatements</h1>
+    <ol>
+        <li>If</li>
+        <li>else</li>
+        <li>else if</li>
+    </ol>
+</div>
+
+<div class="row pt-2 mt-4">
+
+    <div class="col-3">
+        @if (isDiv1Visible) {
+        <div class="p-3 text-center bg-danger">
+            <h4>Div1</h4>
+        </div>
+        }
+
+    </div>
+
+
+    <div class="col-3">
+        @if (isToggle) {
+        <div class="p-3 text-center bg-danger">
+            <h4>Div2</h4>
+        </div>
+        }
+        @else {
+        <div class="p-3 text-center bg-secondary">
+            <h4>Div2</h4>
+        </div>
+        }
+    </div>
+    <div class="col-3">
+        @if(num1==num2)
+        {
+        <div class="p-3 text-center bg-secondary">
+            <h4>MCA</h4>
+        </div>
+        }
+        @else if(num1>num2) {
+        <div class="p-3 text-center bg-primary">
+            <h4>Shubham</h4>
+        </div>
+        }
+        @else {
+        <div class="p-3 text-center bg-danger">
+            <h4>Shrikant</h4>
+        </div>
+        }
+
+    </div>
+    <div class="col-3">
+        @if(select=='active')
+        {
+        <div class="p-3 text-center bg-info">
+            <h4>Active Status</h4>
+        </div>
+        }
+        @else if (select=='deactivate') {
+        <div class="p-3 text-center bg-danger">
+            <h4>Deactivated Status</h4>
+        </div>
+        }
+        @else if(select=='pending')
+        {
+        <div class="p-3 text-center bg-warning">
+            <h4>Pending status</h4>
+        </div>
+        }
+        @else {
+        <div class="p-3 text-center bg-secondary">
+            <h4>Select status from drop down</h4>
+        </div>
+        }
+    </div>
+</div>
+
+<div class="row pt-3 mt-4">
+
+    <div class="col-3 mt-3 text-center">
+        <button class="btn btn-primary" (click)="showDiv()">Show</button>
+        <button class="btn btn-primary mx-4" (click)="hideDiv()">Hide</button>
+    </div>
+    <div class="col-3 mt-3 text-center">
+        <button class="btn btn-primary" (click)="toggleDiv()">Toggle</button>
+    </div>
+    <div class="col-3 mt-3 text-center">
+        <input type="text" placeholder="Enter Num" [(ngModel)]="num1
+        ">&nbsp;&nbsp;
+        <input type="text" placeholder="Enter Num" [(ngModel)]="num2">
+    </div>
+    <div class="col-3 mt-3 text-center">
+        <select [(ngModel)]="select">
+            <option value="">status</option>
+            <option value="active">Active</option>
+            <option value="deactivate">Deactivate</option>
+            <option value="pending">Pending</option>
+        </select>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<h1>One Way Data Binding</h1>
+
+<h2>1.Using Interpolation</h2>
+<h3>Username is {{userName}}</h3>
+<h4>Contact No:{{contactNumber}}</h4>
+<h5>Today Date is:{{todayDate.getDate()}}</h5>
+
+<input type="{{inputType}}" value="{{userName}}" placeholder="Enter Your Name">
+
+<button type="button" class="{{className}}">Submit</button><br><br><br><br>
+
+<div class="container">
+    Username:<input [type]="inputType" [value]="userName">
+    <button [class]="className" type="button">Submit</button>
+</div>
