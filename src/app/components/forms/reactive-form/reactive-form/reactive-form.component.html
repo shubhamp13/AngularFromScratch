@@ -1,0 +1,55 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Student Registration</h2>
+    <form [formGroup]="studentForm">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" required minlength="3"
+                    formControlName="firstName" />
+            </div>
+            <div class="col-md-6">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName" name="lastName" required minlength="3"
+                    formControlName="lastName" />
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="userName" class="form-label">Username</label>
+            <input type="text" class="form-control" id="userName" name="userName" required minlength="3"
+                formControlName="userName" />
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="city" class="form-label">City</label>
+                <input type="text" class="form-control" id="city" name="city" required formControlName="city" />
+            </div>
+            <div class="col-md-4">
+                <label for="state" class="form-label">State</label>
+                <select formControlName="state">
+                    <option value="">select</option>
+                    @for (s of states; track $index) {
+                    <option value="{{s}}">{{s}}</option>
+                    }
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="zipCode" class="form-label">Zip</label>
+                <input type="text" class="form-control" id="zipCode" name="zipCode" required
+                    formControlName="zipCode" />
+            </div>
+        </div>
+
+        <div class="mb-3 form-check forn-control">
+            <input type="checkbox" class="form-check-input" id="isAcceptedTerms" name="isAcceptedTerms" required
+                formControlName="checkBox" />
+            <label class="form-check-label" for="isAcceptedTerms">Accept Terms and Conditions</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-primary mx-4">Reset</button>
+    </form>
+</div>
+
+<div></div>

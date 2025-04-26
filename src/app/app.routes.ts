@@ -8,6 +8,9 @@ import { ForSwitchComponent } from './components/contrl-flow/for-switch/for-swit
 import { DefaultPipeComponent } from './components/pipes/default-pipe/default-pipe.component';
 import { AsyncPipeComponent } from './components/pipes/async-pipe/async-pipe.component';
 import { CustPipeExampleComponent } from './components/pipes/cust-pipe-example/cust-pipe-example.component';
+import { TemplateComponent } from './components/forms/template-form/template/template.component';
+import { TemplateExampleComponent } from './components/forms/template-example/template-example.component';
+import { ReactiveFormComponent } from './components/forms/reactive-form/reactive-form/reactive-form.component';
 
 
 
@@ -47,5 +50,17 @@ export const routes: Routes = [
     {
         path: 'custom-pipe',
         component: CustPipeExampleComponent
+    },
+    {
+        path: 'template-form',
+        component: TemplateComponent
+    },
+    {
+        path: 'template-form-example',
+        component: TemplateExampleComponent
+    },
+    {
+        path: 'reactive-form',
+        component: ReactiveFormComponent
     }
 ];

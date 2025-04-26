@@ -1,0 +1,115 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Student Registration</h2>
+    <form #form="ngForm">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" #fName="ngModel" [(ngModel)]="student.firstName" class="form-control" id="firstName"
+                    name="firstName" required minlength="3">
+                <div class="text-danger">
+                    @if((fName.touched||fName.dirty)&&fName.errors?.['required'])
+                    {
+                    <span>*This is Required</span>
+                    }
+                    @else if (fName.touched&&fName.errors?.['minlength']) {
+                    <span>Minimum Three Charcters Required</span>
+                    }
+
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" #lName="ngModel" [(ngModel)]="student.lastName" class="form-control" id="lastName"
+                    name="lastName" required minlength="3">
+                <div class="text-danger">
+                    @if(lName.touched&&lName.hasError('required'))
+                    {
+                    <span>Last Name Is Mandatory</span>
+                    }
+                    @else if (lName.touched && lName.hasError('minlength')) {
+                    <span>Minimum length must be 3 charcters</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="userName" class="form-label">Username</label>
+            <input type="text" #uName="ngModel" [(ngModel)]="student.userName" class="form-control" id="userName"
+                name="userName" required minlength="3">
+            <div class="text-danger">
+                @if(uName.touched &&uName.hasError('required'))
+                {
+                <span>User Name is mandatory</span>
+                }
+                @else if (uName.touched && uName.hasError('minlength')) {
+                <span>Minimum Three Charcters Are Required</span>
+                }
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="city" class="form-label">City</label>
+                <input type="text" #cityName="ngModel" [(ngModel)]="student.city" class="form-control" id="city"
+                    name="city" required>
+                <div class="text-danger">
+                    @if(cityName.touched && cityName.hasError('required'))
+                    {
+                    <span>City Name Is Mandatory</span>
+                    }
+                    @else if (cityName.touched && cityName.hasError('minlength')) {
+                    <span>Minimum Three Charcters Are reuired</span>
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label for="state" class="form-label">State</label>
+                <select #stateName="ngModel" [(ngModel)]="student.state" name="state" class="form-control" required>
+                    <option value="">select </option>
+                    @for (item of states; track $index) {
+                    <option value="{{item}}">{{item}}</option>
+                    }
+                </select>
+                <div class="text-danger">
+                    @if(stateName.touched && stateName.hasError('required'))
+                    {
+                    <span>Please Selct State From Dropdown</span>
+                    }
+                </div>
+            </div>
+            <div class="col-md-2">
+                <label for="zipCode" class="form-label">Zip</label>
+                <input type="text" #zip="ngModel" [(ngModel)]="student.zipCode" class="form-control" id="zipCode"
+                    name="zipCode" required>
+                <div class="text-danger">
+                    @if(zip.touched && zip.hasError('required'))
+                    {
+                    <span>Zip code is mandatory</span>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3 form-check">
+            <input type="checkbox" #checked="ngModel" [(ngModel)]="student.isAcceptedTerms" class="form-check-input"
+                id="isAcceptedTerms" name="isAcceptedTerms" required>
+            <label class="form-check-label" for="isAcceptedTerms">Accept Terms and Conditions</label>
+            <div class="text-danger">
+                @if(checked.touched && checked.hasError('required'))
+                {
+                <span>Please Select Checkbox to continue</span>
+                }
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="form.invalid" class="btn btn-primary" (click)="onSubmit(form)">Submit</button>
+        <button type="reset" class="btn btn-primary mx-4" (click)="form.resetForm()">Reset</button>
+
+    </form>
+</div>
+
+<div>
+
+</div>

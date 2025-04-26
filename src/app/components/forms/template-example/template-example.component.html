@@ -1,0 +1,153 @@
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg">
+                <div class="card-header text-center">
+                    <h3>Register</h3>
+                </div>
+                <div class="card-body">
+                    <form #form='ngForm'>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="firstName" class="form-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName"
+                                    [(ngModel)]="student.firstName" placeholder="Enter your first name"
+                                    #firstName="ngModel" required minlength="3">
+                                <div class="text-danger">
+                                    @if ((firstName.touched||firstName.dirty)&& firstName.errors?.['required']) {
+                                    <span>first name is required</span>
+                                    }
+                                    @else if (firstName.touched && firstName.errors?.['minlength']) {
+                                    <span>first name must have 3 characters</span>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="lastName" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Enter your last name"
+                                    name="lastName" [(ngModel)]="student.lastName" #lastName="ngModel" required
+                                    minlength="3">
+                                <div class="text-danger">
+                                    @if (lastName.touched && lastName.errors?.['required']) {
+                                    <span>Last name is required</span>
+                                    }
+                                    @else if (lastName.touched && lastName.errors?.['minlength']) {
+                                    <span>Last name must have 3 characters</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="state" class="form-label">State</label>
+                                <input type="text" class="form-control" id="state" placeholder="Enter your state"
+                                    name="state" [(ngModel)]="student.state" #state="ngModel" required minlength="3">
+                                <div class="text-danger">
+                                    @if (state.touched && state.errors?.['required']) {
+                                    <span>Last name is required</span>
+                                    }
+                                    @else if (state.touched && state.errors?.['minlength']) {
+                                    <span>Last name must have 3 characters</span>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="city" class="form-label">City</label>
+                                <input type="text" class="form-control" id="city" placeholder="Enter your city"
+                                    name="city" [(ngModel)]="student.city" #cityName="ngModel" required minlength="3">
+                                <div class="text-danger">
+                                    @if (cityName.touched && cityName.errors?.['required']) {
+                                    <span>City Name is required</span>
+                                    }
+                                    @else if (cityName.touched && cityName.errors?.['minlength']) {
+                                    <span>City Name must have 3 characters</span>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email"
+                                name="email" [(ngModel)]="student.email" #emailId="ngModel" required email>
+                            <div class="text-danger">
+                                @if (emailId.touched && emailId.errors?.['required']) {
+                                <span>Email id is required</span>
+                                }
+                                @else if (emailId.errors?.['email']) {
+                                <span>Please Provide Correct Email Format</span>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number"
+                                name="phoneNo" [(ngModel)]="student.phoneNo" #phoneNo="ngModel" pattern="^[0-9]{10}$">
+                            <div class="text-danger">
+                                @if (phoneNo.touched && phoneNo.errors?.['required']) {
+                                <span>Phone No is required</span>
+                                }
+                                @else if (phoneNo.errors?.['pattern']) {
+                                <span>Please Provide Correct Mobile No Format</span>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter your password"
+                                name="password" [(ngModel)]="student.password" #password="ngModel" required
+                                minlength="8">
+                            <div class="text-danger">
+                                @if (password.touched && password.errors?.['required']) {
+                                <span>Password is required</span>
+                                }
+                                @else if (password.errors?.['minlength']) {
+                                <span>Please Provide minimum 8 alphanumeric password</span>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword"
+                                placeholder="Confirm your password" name="confirmPassword"
+                                [(ngModel)]="student.confirmPassword" #confirmPassword="ngModel" required minlength="8">
+                            <div class="text-danger">
+                                @if (confirmPassword.touched && confirmPassword.errors?.['required']) {
+                                <span>Confirm Password is required</span>
+                                }
+                                @else if (confirmPassword.touched && confirmPassword.errors?.['minlength']) {
+                                <span>Please Provide minimum 8 charcters alphanumeric password</span>
+                                }
+                                @else if(confirmPassword.touched && !confirmPassword.errors &&
+                                confirmPassword.value!=password.value)
+                                {
+                                <span>Both Password and Confirm Password Must Be same</span>
+                                }
+
+                            </div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary mx-4" [disabled]="form.invalid && confirmPassword.value
+                                !=password.value" (click)="onSubmit()">Register</button>
+                            <button type="button" class="btn btn-primary mx-4" (click)="form.resetForm()">reset</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    Already have an account? <a href="#">Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card" *ngIf="isSubmitted">
+    {{student|json}}
+</div>
