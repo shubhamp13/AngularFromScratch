@@ -11,6 +11,9 @@ import { CustPipeExampleComponent } from './components/pipes/cust-pipe-example/c
 import { TemplateComponent } from './components/forms/template-form/template/template.component';
 import { TemplateExampleComponent } from './components/forms/template-example/template-example.component';
 import { ReactiveFormComponent } from './components/forms/reactive-form/reactive-form/reactive-form.component';
+import { GetApiComponent } from './components/api-integration/get-api/get-api.component';
+import { GetApiExampleComponent } from './components/api-integration/get-api-example/get-api-example.component';
+import { PostApiComponent } from './components/api-integration/post-api/post-api.component';
 
 
 
@@ -62,5 +65,17 @@ export const routes: Routes = [
     {
         path: 'reactive-form',
         component: ReactiveFormComponent
+    },
+    {
+        path: 'get-api',
+        component: GetApiComponent
+    },
+    {
+        path: 'get-api-example',
+        component: GetApiExampleComponent
+    },
+    {
+        path: 'post-api',
+        component: PostApiComponent
     }
 ];

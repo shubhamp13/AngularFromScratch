@@ -1,0 +1,49 @@
+<div class="mt-2 p-2 bg-success text-white rounded">
+    <h1>Post API</h1>
+    <p>Post API Call</p>
+</div>
+
+<div class="mt-2 p-2  bg-primary text-white rounded">
+    <h3>Department List</h3>
+</div>
+<table class="table table-bordered table-striped">
+    <thead>
+        <th>S.No</th>
+        <th>Name</th>
+        <th>Logo</th>
+    </thead>
+    <tbody>
+        @for (d of dept; track $index) {
+        <tr>
+            <td>{{d.departmentId}}</td>
+            <td>{{d.departmentName}}</td>
+            <td>{{d.departmentLogo}}</td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div class="container mt-5">
+    <div class="card" style="max-width: 500px; margin: auto;">
+        <div class="card-header bg-dark text-white">
+            <h5 class="card-title mb-0">Department Details</h5>
+        </div>
+        <div class="card-body">
+            <form>
+
+                <div class="mb-3">
+                    <label for="departmentName" class="form-label">Department Name</label>
+                    <input type="text" class="form-control" id="departmentName" name="departmentName"
+                        placeholder="Enter department name" [(ngModel)]="department. departmentName">
+                </div>
+                <div class="mb-3">
+                    <label for="departmentLogo" class="form-label">Department Logo</label>
+                    <input type="text" class="form-control" id="departmentLogo" name="departmentLogo"
+                        [(ngModel)]="department.departmentLogo">
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary" (click)="addProduct()">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

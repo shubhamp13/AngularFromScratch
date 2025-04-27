@@ -1,0 +1,36 @@
+<div class="mt-2 p-2 bg-success text-white rounded">
+    <h1>GET API</h1>
+    <p>GET API Call</p>
+    <button class="button" (click)="getAllProducts()">Click Here</button>
+
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>S.NO</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>color</th>
+            <th>ROM</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (product of products; track $index) {
+        <tr>
+            <td>{{$index}}</td>
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            @if(product.data!=null)
+            {<td>{{product.data.color}}</td>
+            <td>{{product.data.capacity}}</td>
+            }
+            @else {
+            <td>NA</td>
+            <td>NA</td>
+            }
+
+        </tr>
+        }
+    </tbody>
+</table>

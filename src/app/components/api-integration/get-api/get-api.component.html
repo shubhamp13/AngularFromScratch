@@ -1,0 +1,41 @@
+<div class="mt-2 p-2 bg-success text-white rounded">
+    <h1>GET API</h1>
+    <p>GET API Call</p>
+    <button class="btn bg-primary " type="submit" (click)="getAllCustomers()">Get All Customers</button>
+</div>
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th> Id</th>
+            <th> Name</th>
+            <th> Email</th>
+            <th> Full Name</th>
+            <th> Role</th>
+            <th>Project Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (cust of customers; track $index) {
+        <tr>
+            <td>{{cust.userId}}</td>
+            <td>{{cust.userName}}</td>
+            <td>{{cust.emailId}}</td>
+            <td>{{cust.fullName}}</td>
+            <td>{{cust.role}}</td>
+            <td>{{cust.projectName}}</td>
+        </tr>
+        }
+        <!-- <tr>
+            @for (cust of customers; track $index) {
+            <td>{{cust.userId}}</td>
+            <td>{{cust.userName}}</td>
+            <td>{{cust.emailId}}</td>
+            <td>{{cust.fullName}}</td>
+            <td>{{cust.role}}</td>
+            <td>{{cust.projectName}}</td>
+
+            }
+        </tr> -->
+    </tbody>
+</table>
