@@ -134,7 +134,7 @@
                         </div>
 
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary mx-4" [disabled]="form.invalid && confirmPassword.value
+                            <button type="submit" class="btn btn-primary mx-4" [disabled]="form.invalid || confirmPassword.value
                                 !=password.value" (click)="onSubmit()">Register</button>
                             <button type="button" class="btn btn-primary mx-4" (click)="form.resetForm()">reset</button>
                         </div>

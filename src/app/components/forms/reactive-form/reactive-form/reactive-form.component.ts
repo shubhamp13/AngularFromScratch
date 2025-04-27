@@ -14,11 +14,15 @@ export class ReactiveFormComponent {
   studentForm = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
     lastName: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    userName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    userName: new FormControl('', [Validators.required, Validators.email]),
     city: new FormControl('', [Validators.required, Validators.minLength(3)]),
     state: new FormControl('', [Validators.required, Validators.minLength(3)]),
     zipCode: new FormControl('', [Validators.required, Validators.minLength(6)]),
     checkBox: new FormControl(true)
   })
+  onSubmit() {
+    console.log(this.studentForm);
+    alert("Form is submitted")
+  }
 
 }

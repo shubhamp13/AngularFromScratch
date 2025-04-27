@@ -1,29 +1,64 @@
 <div class="container mt-5">
     <h2 class="mb-4">Student Registration</h2>
-    <form [formGroup]="studentForm">
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="firstName" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="firstName" name="firstName" required minlength="3"
                     formControlName="firstName" />
+                <div class="text-danger">
+                    @if (studentForm.touched&&studentForm.controls['firstName'].errors?.['required']) {
+                    <span>first name is mandatory</span>
+                    }
+                    @else if (studentForm.touched&&studentForm.controls['firstName'].errors?.['minlength']) {
+                    <span>minimum three charcters are mandatory</span>
+                    }
+                </div>
             </div>
             <div class="col-md-6">
                 <label for="lastName" class="form-label">Last Name</label>
                 <input type="text" class="form-control" id="lastName" name="lastName" required minlength="3"
                     formControlName="lastName" />
+                <div class="text-danger">
+                    @if(studentForm.touched && studentForm.controls['lastName'].errors?.['required'])
+                    {
+                    <span>last name is required</span>
+                    }
+                    @else if (studentForm.touched && studentForm.controls['lastName'].errors?.['minlength']) {
+                    <span>last name is required</span>
+                    }
+                </div>
             </div>
         </div>
 
         <div class="mb-3">
             <label for="userName" class="form-label">Username</label>
             <input type="text" class="form-control" id="userName" name="userName" required minlength="3"
-                formControlName="userName" />
+                formControlName="userName" required />
+            <div class="text-danger">
+                @if (studentForm.touched&&studentForm.controls['userName'].errors?.['required']) {
+                <span>email is mandatory</span>
+                }
+
+                @else if (studentForm.touched&&studentForm.controls['userName'].errors?.['email']) {
+                <span>email must be in format</span>
+                }
+            </div>
         </div>
 
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="city" class="form-label">City</label>
                 <input type="text" class="form-control" id="city" name="city" required formControlName="city" />
+                <div class="text-danger">
+                    @if(studentForm.touched && studentForm.controls['city'].errors?.['required'])
+                    {
+                    <span>city name is mandatory</span>
+                    }
+                    @else if(studentForm.touched && studentForm.controls['city'].errors?.['minlength']){
+                    <span>city must have three chcracters</span>
+                    }
+                </div>
             </div>
             <div class="col-md-4">
                 <label for="state" class="form-label">State</label>
@@ -33,11 +68,27 @@
                     <option value="{{s}}">{{s}}</option>
                     }
                 </select>
+                <div class="text-danger">
+                    @if(studentForm.touched && studentForm.controls['state'].errors?.['required'])
+                    {
+                    <span>please selct state from dropdown</span>
+                    }
+                </div>
             </div>
             <div class="col-md-2">
                 <label for="zipCode" class="form-label">Zip</label>
                 <input type="text" class="form-control" id="zipCode" name="zipCode" required
                     formControlName="zipCode" />
+
+                <div class="text-danger">
+                    @if(studentForm.touched && studentForm.controls['zipCode'].errors?.['required'])
+                    {
+                    <span>zipcode is mandatory</span>
+                    }
+                    @else if ( studentForm.touched && studentForm.controls['zipCode'].errors?.['minlength']) {
+                    <span>zip code must be 6 digits</span>
+                    }
+                </div>
             </div>
         </div>
 
@@ -45,9 +96,15 @@
             <input type="checkbox" class="form-check-input" id="isAcceptedTerms" name="isAcceptedTerms" required
                 formControlName="checkBox" />
             <label class="form-check-label" for="isAcceptedTerms">Accept Terms and Conditions</label>
+            <div class="text-danger">
+                @if(studentForm.touched && studentForm.controls['checkBox'].errors?.['required'])
+                {
+                <span>Pleae check the checkbox</span>
+                }
+            </div>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" [disabled]="studentForm.invalid">Submit</button>
         <button type="reset" class="btn btn-primary mx-4">Reset</button>
     </form>
 </div>
