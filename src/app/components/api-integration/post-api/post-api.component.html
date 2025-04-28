@@ -8,9 +8,12 @@
 </div>
 <table class="table table-bordered table-striped">
     <thead>
-        <th>S.No</th>
-        <th>Name</th>
-        <th>Logo</th>
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Logo</th>
+            <th>Action</th>
+        </tr>
     </thead>
     <tbody>
         @for (d of dept; track $index) {
@@ -18,6 +21,8 @@
             <td>{{d.departmentId}}</td>
             <td>{{d.departmentName}}</td>
             <td>{{d.departmentLogo}}</td>
+            <td><button class="btn btn-primary" (click)="editInfo(d)">Edit</button></td>
+            <td><button class="btn btn-danger" (click)="deleteDept(d.departmentId)">Delete</button></td>
         </tr>
         }
     </tbody>
@@ -50,7 +55,9 @@
                         formControlName="departmentLogo">
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary" (click)="addProduct()">Submit</button>
+                    <button type="submit" class="btn btn-primary" (click)="addDepartment()"
+                        *ngIf="!isEdit">Submit</button>
+                    <button class="btn btn-primary" *ngIf="isEdit" (click)="updateDept()">Edit</button>
                 </div>
             </form>
         </div>
