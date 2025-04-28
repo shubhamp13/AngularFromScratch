@@ -1,0 +1,35 @@
+<div class="mt-2 p-2 bg-success text-white rounded">
+    <h1>GET API</h1>
+    <p>GET API Call</p>
+    <button class="button" (click)="getAllTodo()">Click Here</button>
+
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>User Id</th>
+            <th>Id</th>
+            <th>titles</th>
+            <th>Completed</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (res of result; track $index) {
+        <tr>
+            <td>{{res.userId}}</td>
+            <td>{{res.id}}</td>
+            <td>{{res.title}}</td>
+            <td>
+                @if(res.completed)
+                {
+                completed
+                }
+                @else {
+                Incomplete
+                }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

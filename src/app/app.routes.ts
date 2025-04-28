@@ -14,6 +14,8 @@ import { ReactiveFormComponent } from './components/forms/reactive-form/reactive
 import { GetApiComponent } from './components/api-integration/get-api/get-api.component';
 import { GetApiExampleComponent } from './components/api-integration/get-api-example/get-api-example.component';
 import { PostApiComponent } from './components/api-integration/post-api/post-api.component';
+import { GetApi3Component } from './components/api-integration/get-api-3/get-api-3.component';
+import { PostApi2Component } from './components/api-integration/post-api-2/post-api-2.component';
 
 
 
@@ -77,5 +79,14 @@ export const routes: Routes = [
     {
         path: 'post-api',
         component: PostApiComponent
+    },
+    {
+        path: 'get-api-3',
+
+        component: GetApi3Component
+    },
+    {
+        path: 'post-api-2',
+        component: PostApi2Component
     }
 ];

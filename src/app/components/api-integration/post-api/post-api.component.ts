@@ -1,21 +1,23 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-post-api',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './post-api.component.html',
   styleUrl: './post-api.component.css'
 })
 export class PostApiComponent {
 
-  department: any = {
-    departmentId: 0,
-    departmentName: "",
-    departmentLogo: ""
-  }
+
+  department: FormGroup = new FormGroup({
+    departmentId: new FormControl(0),
+    departmentName: new FormControl("", [Validators.required, Validators.minLength(3)]),
+    departmentLogo: new FormControl("", [Validators.required, Validators.minLength(3)])
+  });
   constructor(private http: HttpClient) {
   }
   addProduct() {

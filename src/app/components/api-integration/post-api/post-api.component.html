@@ -28,17 +28,26 @@
             <h5 class="card-title mb-0">Department Details</h5>
         </div>
         <div class="card-body">
-            <form>
+            <form [formGroup]="department">
 
                 <div class="mb-3">
                     <label for="departmentName" class="form-label">Department Name</label>
                     <input type="text" class="form-control" id="departmentName" name="departmentName"
-                        placeholder="Enter department name" [(ngModel)]="department. departmentName">
+                        placeholder="Enter department name" formControlName="departmentName">
+                    <div class="text-danger">
+                        @if(department.touched&&department.controls['departmentName'].errors?.['required'])
+                        {
+                        <span>Department Name is mandatory</span>
+                        }
+                        @else if (department.touched && department.controls['departmentName'].errors?.['minlength']) {
+                        <span>Minimum Three Charcters Mandatory</span>
+                        }
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="departmentLogo" class="form-label">Department Logo</label>
                     <input type="text" class="form-control" id="departmentLogo" name="departmentLogo"
-                        [(ngModel)]="department.departmentLogo">
+                        formControlName="departmentLogo">
                 </div>
                 <div class="d-grid">
                     <button type="submit" class="btn btn-primary" (click)="addProduct()">Submit</button>
